@@ -18,9 +18,9 @@ const Home = () => {
           setLoaded(true); // Se establece loaded en true para indicar que las recetas ya se han cargado
         })
         .catch((error) => {
-          console.log("Error fetching recipes:", error.response.data);
+          console.log("Error fetching recipes:", error.response?.data);
           setLoading(false);
-          alert(error.response.data.message);
+          alert(error.response?.data?.message || "Error fetching recipes");
         });
     }
   }, [dispatch, loaded]);
