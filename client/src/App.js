@@ -5,7 +5,7 @@ import {Route} from 'react-router-dom'
 import ThreeDotsMenu from './components/ThreeDotsMenu/ThreeDotsMenu';
 import axios from 'axios';
 
-axios.defaults.baseURL = "deploy-production-b34b.up.railway.app";
+axios.defaults.baseURL = "https://deploy-jharoldm.vercel.app/";
 
 function App() {
   const location = useLocation();
