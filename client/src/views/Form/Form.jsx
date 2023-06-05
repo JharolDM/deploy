@@ -139,7 +139,7 @@ const handleDietsChange = (event) => {
 
     // Envío del formulario al servidor usando axios
     axios
-      .post("http://localhost:3001/recipes", updatedForm)
+      .post("/recipes", updatedForm)
       .then((res) => alert(`Success!!\n${res.statusText}\nID:${res.data[0].id}\n${res.data[0].title}`))
       .catch((error) => alert(`ERROR\nStatus: ${error.response.status}\nMessage: ${error.response.data.error}`));
   };

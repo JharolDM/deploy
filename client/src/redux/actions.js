@@ -22,7 +22,7 @@ export const RESET_FILTERS= "RESET_FILTERS";
 export const getDiets = () => {
   return async function (dispatch) {
     try {
-      const apiData = await axios.get('http://localhost:3001/diets');
+      const apiData = await axios.get('/diets');
       const diets = apiData.data.diets;
       dispatch({ type: GET_DIETS, payload: diets });
     } catch (error) {
@@ -34,7 +34,7 @@ export const getDiets = () => {
 
 export const getRecipe = (id) => {
   return async function (dispatch) {
-    const apiData = await axios.get(`http://localhost:3001/recipes/${id}`);
+    const apiData = await axios.get(`/recipes/${id}`);
     const recipe = apiData.data;
     dispatch({ type: GET_RECIPE, payload: recipe });
   };
@@ -43,7 +43,7 @@ export const getRecipe = (id) => {
 export const getRecipes = () => {
   return async function (dispatch) {
     try {
-      const apiData = await axios.get('http://localhost:3001/recipes');
+      const apiData = await axios.get('/recipes');
       const recipes = apiData.data.map((recipe) => ({
         ...recipe,
         source: "API"
@@ -60,7 +60,7 @@ export const getRecipes = () => {
 
 export const findRecipes = (title) => {
   return async function (dispatch) {
-    const apiData = await axios.get(`http://localhost:3001/recipes/?title=${title}`);
+    const apiData = await axios.get(`/recipes/?title=${title}`);
     const recipes = apiData.data;
     dispatch({ type: FIND_RECIPES, payload: recipes });
   };

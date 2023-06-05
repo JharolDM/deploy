@@ -3,6 +3,9 @@ import './App.css';
 import {About, Detail, Form, Home, Landing} from './views';
 import {Route} from 'react-router-dom'
 import ThreeDotsMenu from './components/ThreeDotsMenu/ThreeDotsMenu';
+import axios from 'axios';
+
+axios.defaults.baseURL = "http://localhost:3001/";
 
 function App() {
   const location = useLocation();
