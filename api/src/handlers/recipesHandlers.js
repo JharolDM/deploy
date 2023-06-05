@@ -59,7 +59,7 @@ const getRecipesHandler = async (req, res) => {
 
   try {
     // Responder con los resultados obtenidos
-    res.send(await results);
+    res.send(results);
   } catch (error) {
     // Manejar el error y responder con el código de estado y mensaje de error correspondientes
     res.status(error.response.status).json(error.response.data);
