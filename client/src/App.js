@@ -5,7 +5,7 @@ import {Route} from 'react-router-dom'
 import ThreeDotsMenu from './components/ThreeDotsMenu/ThreeDotsMenu';
 import axios from 'axios';
 
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "deploy-production-b34b.up.railway.app";
 
 function App() {
   const location = useLocation();
