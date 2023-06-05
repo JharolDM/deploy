@@ -6,7 +6,7 @@ const { Diet } = require('../db.js');
 // Función para crear las dietas
 const createDiets = async () => {
   // Obtener dietas de una API externa
-  const response = await axios.get(`${URL}/complexSearch?apiKey=${KEY}&addRecipeInformation=true&number=40`);
+  const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY}&addRecipeInformation=true&number=40`);
   const data = response.data.results; // Obtener los resultados de la respuesta
 
   // Crear un Conjunto para evitar duplicados

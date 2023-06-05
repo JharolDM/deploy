@@ -57,7 +57,7 @@ const getRecipeByTitle = async (title) => {
   });
 
   // Buscar recetas en la API externa que coincidan con el título
-  const apiRecipesRaw = (await axios.get(`${URL}/complexSearch?apiKey=${KEY}&number=100&query=${title}&addRecipeInformation=true`)).data.results;
+  const apiRecipesRaw = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY}&number=100&query=${title}&addRecipeInformation=true`)).data.results;
 
   // Limpiar los datos de las recetas obtenidas
   const apiRecipes = cleanArray(apiRecipesRaw);
@@ -76,7 +76,7 @@ const getRecipeByTitle = async (title) => {
 
 const getAllRecipes = async () => {
   // Obtener todas las recetas de la API externa
-  const apiRecipesRaw = (await axios.get(`${URL}/complexSearch?apiKey=${KEY}&number=100&addRecipeInformation=true`)).data.results;
+  const apiRecipesRaw = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY}&number=100&addRecipeInformation=true`)).data.results;
 
   // Obtener todas las recetas de la base de datos, incluyendo los tipos de dietas asociados
   const dbRecipesRaw = await Recipe.findAll({
@@ -100,7 +100,7 @@ const getRecipeById = async (id, source) => {
 
   if (source === "api") {
     // Obtener la receta de la API externa
-    response = await axios.get(`${URL}/${id}/information?apiKey=${KEY}`);
+    response = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${KEY}`);
   } else {
     // Obtener la receta de la base de datos incluyendo los tipos de dietas asociados
     response = await Recipe.findByPk(id, {
